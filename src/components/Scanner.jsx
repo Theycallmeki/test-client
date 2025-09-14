@@ -27,17 +27,19 @@ const Scanner = ({ onAddToCart }) => {
     return () => controls && typeof controls.stop === "function" && controls.stop();
   }, [isScanning]);
 
-  // 🔹 Fetch product from backend instead of mock database
+  // 🔹 Fetch product from backend
   const fetchProduct = async (barcode) => {
     try {
-      const res = await fetch(`http://localhost:3005/api/items/barcode/${barcode}`);
+      const res = await fetch(`https://test-server-853u.onrender.com/api/items/barcode/${barcode}`, {
+        credentials: "include"
+      });
       if (!res.ok) {
         throw new Error("Item not found");
       }
       const data = await res.json();
 
       const foundProduct = {
-        barcode: data.barcode,  // use barcode
+        barcode: data.barcode,
         name: data.name,
         category: data.category,
         price: parseFloat(data.price),
@@ -49,7 +51,7 @@ const Scanner = ({ onAddToCart }) => {
     } catch (err) {
       console.error(err.message);
       const unknownProduct = {
-        barcode: barcode,      // use barcode
+        barcode: barcode,
         name: "Unknown Product",
         category: "N/A",
         price: 0,
