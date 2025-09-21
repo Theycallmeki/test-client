@@ -27,7 +27,7 @@ function Checkout({ cart }) {
         price: Number(item.price) // convert to number
       }));
 
-      const res = await fetch("https://test-server-853u.onrender.com/api/checkout", {
+      const res = await fetch("https://test-server-34si.onrender.com//api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
