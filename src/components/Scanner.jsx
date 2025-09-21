@@ -88,7 +88,7 @@ const Scanner = ({ onAddToCart }) => {
 
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h2>Scan Product</h2>
+      <h2>Scan Product...</h2>
 
       <button
         onClick={() => setIsScanning(!isScanning)}
