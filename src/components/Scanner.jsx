@@ -30,7 +30,7 @@ const Scanner = ({ onAddToCart }) => {
   // 🔹 Fetch product from backend
   const fetchProduct = async (barcode) => {
     try {
-      const res = await fetch(`https://test-server-34si.onrender.com//api/items/barcode/${barcode}`, {
+      const res = await fetch(`https://test-server-34si.onrender.com/api/items/barcode/${barcode}`, {
         credentials: "include"
       });
       if (!res.ok) {
