@@ -26,7 +26,7 @@ function Checkout({ cart }) {
   const handleGCashPayment = async () => {
     setProcessing(true);
     try {
-      const res = await fetch("https://server-84oo.onrender.com/api/create-gcash-payment", {
+      const res = await fetch("https://server-1-qq50.onrender.com/api/create-gcash-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cart }),
@@ -60,7 +60,7 @@ function Checkout({ cart }) {
       let completed = false;
 
       while (!completed && Date.now() < timeout && !pollingController.current.cancel) {
-        const res = await fetch("https://server-84oo.onrender.com/api/confirm-gcash-payment", {
+        const res = await fetch("https://server-1-qq50.onrender.com/api/confirm-gcash-payment", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ paymentIntentId, cart }),
